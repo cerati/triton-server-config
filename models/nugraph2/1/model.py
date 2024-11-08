@@ -210,7 +210,6 @@ class NuGraph2_model(nn.Module):
         transform = Compose((ng.util.PositionFeatures(self.planes),
                              ng.util.FeatureNorm(self.planes, self.norm),
                              ng.util.HierarchicalEdges(self.planes),
-                             ng.util.FeatureExtension.FeatureExtension(self.planes),
                              ng.util.EventLabels()))
         hetero_dataset = HeteroDataset(gnn_hetero_data, transform=transform)
         data = hetero_dataset.get()
