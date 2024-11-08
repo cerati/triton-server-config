@@ -191,10 +191,10 @@ class NuGraph2_model(nn.Module):
         modelpath = os.path.dirname(os.path.abspath(__file__))
         self.model = self.MODEL.load_from_checkpoint(os.path.join(modelpath, "test-ng2.ckpt"), map_location=self.device)
         self.planes = ['u', 'v', 'y']
-        self.norm = {'u':torch.tensor(np.array([[389.42752, 172.90794, 147.81108, 4.5563765], [147.1627, 78.01324, 228.31424, 2.2156637]]).astype(np.float32)),
-                     'v':torch.tensor(np.array([[368.83023, 173.01247, 154.14513, 4.449338 ], [145.29645, 80.54078, 282.34027, 1.8969047]]).astype(np.float32)),
-                     'y':torch.tensor(np.array([[546.2973, 172.77615, 116.974, 4.1647816],[283.47656, 73.99135, 115.49256, 1.4615369]]).astype(np.float32))}
-        
+        self.norm = {'u':torch.tensor(np.array([[395.23712, 180.31087, 156.4287  , 4.6503887], [146.59378, 76.942184, 288.28412 , 2.277651 ]]).astype(np.float32)),
+                     'v':torch.tensor(np.array([[374.18634, 180.33629, 152.55469 , 4.465103 ], [147.33215, 78.70177 , 253.89346 , 1.9274441]]).astype(np.float32)),
+                     'y':torch.tensor(np.array([[552.84753, 181.09207, 125.493675, 4.223127 ], [283.6226 , 73.07375 , 159.50517 , 1.5871835]]).astype(np.float32))}
+
         self.hitgraph = HitGraphProducer()
 
     def forward(self, hit_table_hit_id, hit_table_local_plane, hit_table_local_time, \
