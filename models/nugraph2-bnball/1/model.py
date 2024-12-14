@@ -189,7 +189,7 @@ class NuGraph2_model(nn.Module):
         self.MODEL = ng.models.nugraph2.NuGraph2
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         modelpath = os.path.dirname(os.path.abspath(__file__))
-        self.model = self.MODEL.load_from_checkpoint(os.path.join(modelpath, "test-ng2.ckpt"), map_location=self.device)
+        self.model = self.MODEL.load_from_checkpoint(os.path.join(modelpath, "ng2-bnball.ckpt"), map_location=self.device)
         self.planes = ['u', 'v', 'y']
         self.norm = {'u':torch.tensor(np.array([[389.42944, 172.9131 , 147.78534, 4.556218 ], [147.17516, 78.02915, 229.0115 , 2.217162 ]]).astype(np.float32)),
                      'v':torch.tensor(np.array([[368.826  , 173.01329, 154.05507, 4.4487987], [145.29253, 80.55365, 283.39426, 1.8967435]]).astype(np.float32)),
