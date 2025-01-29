@@ -156,6 +156,14 @@ class HitGraphProducer():
                 vtx_2d = torch.tensor([ event[f'nu_vtx_wire_pos_{i}'], event.nu_vtx_wire_time ]).float()
                 data[p].y_vtx = vtx_2d * self.pos_norm[None,:]
 
+        for p in self.planes:
+            if bool(data[p]): continue
+            data[p].pos = torch.empty(0, 2)
+            data[p].x = torch.empty(0, 2)
+            data[p].id = torch.empty(0)
+            data[p, 'plane', p].edge_index = torch.empty((2, 0), dtype=torch.long)
+            data[p, 'nexus', 'sp'].edge_index = torch.empty((2, 0), dtype=torch.long)
+
         # event label
         if self.event_labeller:
             data['evt'].y = torch.tensor(self.event_labeller(event)).long()
