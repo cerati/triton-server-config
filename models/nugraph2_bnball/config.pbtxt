@@ -116,7 +116,7 @@ output [
 
   }
 ]
-parameters: {
-  key: "EXECUTION_ENV_PATH",
-  value: {string_value: "/models-env/nugraph2"}
-  }
+#parameters: {
+#  key: "EXECUTION_ENV_PATH",
+#  value: {string_value: "/models-env/nugraph2"}
+#  }
